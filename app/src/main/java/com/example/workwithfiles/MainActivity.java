@@ -15,11 +15,32 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private final static String FILE_NAME = "content.txt";
+    private float number;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editText = (EditText) findViewById(R.id.editTextTextPersonName2);
+    }
+
+    public void sumInUSD(View view) {
+        number = Float.parseFloat(editText.getText().toString());
+        number *= 0.016;
+        editText.setText(String.valueOf(number));
+    }
+
+    public void sumInEuro(View view) {
+        number = Float.parseFloat(editText.getText().toString());
+        number *= 0.017;
+        editText.setText(String.valueOf(number));
+    }
+
+    public void sumInJPY(View view) {
+        number = Float.parseFloat(editText.getText().toString());
+        number *= 2.36;
+        editText.setText(String.valueOf(number));
     }
 
     // сохранение файла
@@ -27,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         FileOutputStream fos = null;
 
         try {
-            EditText textBox = (EditText) findViewById(R.id.editor);
+            EditText textBox = (EditText) findViewById(R.id.editTextTextPersonName2);
             String text = textBox.getText().toString();
             fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
             fos.write(text.getBytes());
@@ -65,13 +86,11 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException ex) {
                 Toast.makeText(this, ex.getMessage(),
                         Toast.LENGTH_SHORT).show();
-
             }
 
         }
+
         FileOutputStream fos = openFileOutput(FILE_NAME,
                 MODE_APPEND);
-
-
     }
 }

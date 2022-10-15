@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Work With Files</string>
+    <string name="sumInRubles">Сумма в рублях</string>
+    <string name="inputSum">Введите сумму в рублях</string>
+    <string name="usd">Доллары</string>
+    <string name="euro">Евро</string>
+    <string name="jpy">Иены</string>
 </resources>
